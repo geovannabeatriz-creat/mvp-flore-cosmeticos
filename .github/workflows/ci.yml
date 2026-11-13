@@ -3,7 +3,7 @@ name: Testes do MVP Florê Cosméticos
 
 on:
   push:
-    branches: [main]
+    branches: [main, melhorias-documentacao]
   pull_request:
     branches: [main]
 
@@ -23,7 +23,7 @@ jobs:
       - name: Instalar dependências
         run: |
           pip install -r requirements.txt
-          pip install pytest
+          pip install pytest pytest-cov
 
-      - name: Executar testes
-        run: pytest
+      - name: Executar testes com cobertura
+        run: pytest --cov=app --cov-report=term-missing
