@@ -30,3 +30,6 @@ Este é um MVP acadêmico inicial. Antes de uso real, configure uma chave secret
 - Saída de estoque.
 - Aviso de estoque baixo.
 - Armazenamento em banco de dados SQLite.
+## Objetivo do projeto
+
+Facilitar o controle de estoque da Florê Cosméticos, ajudando a reduzir erros nos registros, evitar perdas de produtos e melhorar o acompanhamento das reposições.
