@@ -22,3 +22,11 @@ Execute `pytest` na pasta do projeto.
 
 ## Observação
 Este é um MVP acadêmico inicial. Antes de uso real, configure uma chave secreta segura, implemente autenticação e realize testes adicionais de segurança e usabilidade.
+## Funcionalidades do sistema
+
+- Cadastro de produtos.
+- Consulta de produtos.
+- Entrada de estoque.
+- Saída de estoque.
+- Aviso de estoque baixo.
+- Armazenamento em banco de dados SQLite.
