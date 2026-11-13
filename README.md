@@ -33,3 +33,4 @@ Este é um MVP acadêmico inicial. Antes de uso real, configure uma chave secret
 ## Objetivo do projeto
 
 Facilitar o controle de estoque da Florê Cosméticos, ajudando a reduzir erros nos registros, evitar perdas de produtos e melhorar o acompanhamento das reposições.
+Este projeto busca melhorar a organização e o controle de estoque da Florê Cosméticos.
