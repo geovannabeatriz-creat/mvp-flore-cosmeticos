@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="heading"><div><h1>Estoque de produtos</h1><p>Consulte e atualize os produtos cadastrados.</p></div><a class="button" href="{{ url_for('new_product') }}">+ Cadastrar produto</a></div>
+<form class="search" action="{{ url_for('search_products') }}" method="get">
+  <label for="q">Buscar por nome ou categoria</label><div class="searchrow"><input id="q" name="q" placeholder="Ex.: hidratante" value="{{ request.args.get('q','') }}"><button>Buscar</button><a class="button secondary" href="{{ url_for('index') }}">Limpar</a></div>
+</form>
+{% if low_stock %}
+<section class="alert"><h2>⚠ Atenção: estoque baixo</h2><p>{% for p in low_stock %}{{ p.name }} ({{ p.quantity }} unidade(s)){% if not loop.last %} • {% endif %}{% endfor %}</p></section>
+{% endif %}
+<section class="panel"><h2>Produtos cadastrados</h2>
+{% if products %}
+<div class="tablewrap"><table><thead><tr><th>Produto</th><th>Categoria</th><th>Preço</th><th>Quantidade</th><th>Movimentar estoque</th></tr></thead><tbody>
+{% for p in products %}<tr><td>{{ p.name }}{% if p.quantity <= p.minimum_quantity %}<span class="tag">Estoque baixo</span>{% endif %}</td><td>{{ p.category }}</td><td>R$ {{ "%.2f"|format(p.price) }}</td><td>{{ p.quantity }}</td><td><form class="move" method="post" action="{{ url_for('move_stock', product_id=p.id) }}"><select name="movement" aria-label="Tipo de movimentação"><option value="entrada">Entrada</option><option value="saida">Saída</option></select><input type="number" name="amount" min="1" required aria-label="Quantidade"><button>Aplicar</button></form></td></tr>{% endfor %}
+</tbody></table></div>
+{% else %}<p class="empty">Nenhum produto cadastrado. Comece adicionando o primeiro produto.</p>{% endif %}
+</section>
+{% endblock %}
